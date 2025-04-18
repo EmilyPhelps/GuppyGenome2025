@@ -10,5 +10,11 @@
 #SBATCH --error=agat_ncbi.err
 #SBATCH --job-name=agat_ncbi
 
-PATH=~/anaconda3/bin/:$PATH
+#Set up anaconda environment with agat
+PATH=~/anaconda3/bin/:$PATH 
 source activate agat
+
+GFF=
+GENOME=
+
+agat_sp_flag_premature_stop_codons.pl --gff ${GFF} --fasta ${GENOME} --out ${GFF::-4}.agat.out
