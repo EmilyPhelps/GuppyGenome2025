@@ -1,17 +1,19 @@
 #!/bin/sh
-#SBATCH --export=ALL    .
-#SBATCH --partion sq 
-#SBATCH --time=48:00:00 
-#SBATCH --account Research_Project-T109423
-#SBATCH --nodes=1 
+#SBATCH --export=ALL
+#SBATCH -p sq
+#SBATCH --time=48:00:00
+#SBATCH -A Research_Project-T109423
+#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem-per-cpu=256
+#SBATCH --mail-type=ALL,FAIL
+#SBATCH --mail-user=e.c.phelps@exeter.ac.uk
 #SBATCH --output=agat_ncbi.out
 #SBATCH --error=agat_ncbi.err
 #SBATCH --job-name=agat_ncbi
 
 #Set up anaconda environment with agat
-PATH=~/anaconda3/bin/:$PATH 
+PATH=~/anaconda3/bin/:$PATH
 source activate agat
 
 cd /lustre/home/ecp226/GuppyGenome2025
