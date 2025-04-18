@@ -21,6 +21,6 @@ cd /lustre/home/ecp226/GuppyGenome2025
 inpath=/lustre/home/ecp226/GuppyGenome2025/data/new/
 outpath=/lustre/home/ecp226/GuppyGenome2025/output/new/
 
-GFF=
-GENOME=
+GFF=STAR_annot_v2.braker3.gff3
+GENOME=STAR.chromosomes.release.fasta
 agat_sp_flag_premature_stop_codons.pl --gff ${inpath}${GFF} --fasta ${inpath}${GENOME} --out ${outpath}${GFF::-4}.agat.out
