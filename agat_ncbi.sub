@@ -1,0 +1,14 @@
+#!/bin/sh
+#SBATCH --export=ALL    .
+#SBATCH --partion sq 
+#SBATCH --time=48:00:00 
+#SBATCH --account Research_Project-T109423
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem-per-cpu=256
+#SBATCH --output=agat_ncbi.out
+#SBATCH --error=agat_ncbi.err
+#SBATCH --job-name=agat_ncbi
+
+PATH=~/anaconda3/bin/:$PATH
+source activate agat
