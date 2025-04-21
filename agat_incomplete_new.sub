@@ -8,8 +8,8 @@
 #SBATCH --mem-per-cpu=256
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=e.c.phelps@exeter.ac.uk
-#SBATCH --output=agat_new.out
-#SBATCH --error=agat_new.err
+#SBATCH --output=agat_incomp.new.out
+#SBATCH --error=agat_incomp.new.err
 #SBATCH --job-name=agat_new
 
 #Set up anaconda environment with agat
