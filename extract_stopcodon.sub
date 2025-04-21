@@ -1,0 +1,5 @@
+# 1. Extract CDS and translate to protein
+gffread ${inpath}${GFF} -g ${inpath}${GENOME} -y proteins.fa -x transcripts.fa
+
+# 2. Search for premature stop codons
+grep -B1 '\*.*\*' proteins.fa > premature_stop_proteins.fa
