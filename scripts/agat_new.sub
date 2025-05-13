@@ -1,0 +1,26 @@
+#!/bin/sh
+#SBATCH --export=ALL
+#SBATCH -p sq
+#SBATCH --time=48:00:00
+#SBATCH -A Research_Project-T109423
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem-per-cpu=256
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=e.c.phelps@exeter.ac.uk
+#SBATCH --output=agat_new.out
+#SBATCH --error=agat_new.err
+#SBATCH --job-name=agat_new
+
+#Set up anaconda environment with agat
+PATH=~/anaconda3/bin/:$PATH
+source activate agat
+
+cd /lustre/home/ecp226/GuppyGenome2025
+
+inpath=/lustre/home/ecp226/GuppyGenome2025/data/new/
+outpath=/lustre/home/ecp226/GuppyGenome2025/output/new/
+
+GFF=STAR_annot_v2.braker3.gff3
+GENOME=STAR.chromosomes.release.fasta
+agat_sp_flag_premature_stop_codons.pl --gff ${inpath}${GFF} --fasta ${inpath}${GENOME} --out ${outpath}${GFF::-4}.agat.out

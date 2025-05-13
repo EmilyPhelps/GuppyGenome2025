@@ -1,0 +1,27 @@
+#!/bin/sh
+#SBATCH --export=ALL
+#SBATCH -p sq
+#SBATCH --time=48:00:00
+#SBATCH -A Research_Project-T109423
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem-per-cpu=256
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=e.c.phelps@exeter.ac.uk
+#SBATCH --output=agat_ncbi.out
+#SBATCH --error=agat_ncbi.err
+#SBATCH --job-name=agat_ncbi
+
+#Set up anaconda environment with agat
+PATH=~/anaconda3/bin/:$PATH
+source activate agat
+
+cd /lustre/home/ecp226/GuppyGenome2025
+
+inpath=/lustre/home/ecp226/GuppyGenome2025/data/NCBI/
+outpath=/lustre/home/ecp226/GuppyGenome2025/output/NCBI/
+
+GFF=NCBI_Refseq.gff
+GENOME=GCF_000633615.1_Guppy_female_1.0_MT_genomic.fna
+
+agat_sp_flag_premature_stop_codons.pl --gff ${inpath}${GFF} --fasta ${inpath}${GENOME} --out ${outpath}${GFF::-4}.agat.out

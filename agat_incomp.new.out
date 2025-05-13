@@ -1,0 +1,107 @@
+Codon table 1 in use. You can change it using --table option.
+********************************************************************************
+*                              - Start parsing -                               *
+********************************************************************************
+-------------------------- parse options and metadata --------------------------
+=> Accessing the feature level json files
+	Using standard /lustre/home/ecp226/anaconda3/envs/agat/lib/site_perl/5.26.2/auto/share/dist/AGAT/features_level1.json file
+	Using standard /lustre/home/ecp226/anaconda3/envs/agat/lib/site_perl/5.26.2/auto/share/dist/AGAT/features_level2.json file
+	Using standard /lustre/home/ecp226/anaconda3/envs/agat/lib/site_perl/5.26.2/auto/share/dist/AGAT/features_level3.json file
+	Using standard /lustre/home/ecp226/anaconda3/envs/agat/lib/site_perl/5.26.2/auto/share/dist/AGAT/features_spread.json file
+=> Attribute used to group features when no Parent/ID relationship exists:
+	* locus_tag
+	* gene_id
+=> merge_loci option deactivated
+=> Accessing Ontology
+	No ontology accessible from the gff file header!
+	We use the SOFA ontology distributed with AGAT:
+		/lustre/home/ecp226/anaconda3/envs/agat/lib/site_perl/5.26.2/auto/share/dist/AGAT/so.obo
+	Read ontology /lustre/home/ecp226/anaconda3/envs/agat/lib/site_perl/5.26.2/auto/share/dist/AGAT/so.obo:
+		4 root terms, and 2472 total terms, and 1436 leaf terms
+	Filtering ontology:
+		We found 1757 terms that are sequence_feature or is_a child of it.
+-------------------------------- parse features --------------------------------
+=> GFF parser version used: 3
+
+********************************************************************************
+*                               - End parsing -                                *
+*                             done in 319 seconds                              *
+********************************************************************************
+
+********************************************************************************
+*                               - Start checks -                               *
+********************************************************************************
+---------------------------- Check1: feature types -----------------------------
+----------------------------------- ontology -----------------------------------
+All feature types in agreement with the Ontology.
+------------------------------------- agat -------------------------------------
+AGAT can deal with all the encountered feature types (3rd column)
+------------------------------ done in 0 seconds -------------------------------
+
+------------------------------ Check2: duplicates ------------------------------
+None found
+------------------------------ done in 0 seconds -------------------------------
+
+-------------------------- Check3: sequential bucket ---------------------------
+Nothing to check as sequential bucket!
+------------------------------ done in 0 seconds -------------------------------
+
+--------------------------- Check4: l2 linked to l3 ----------------------------
+No problem found
+------------------------------ done in 1 seconds -------------------------------
+
+--------------------------- Check5: l1 linked to l2 ----------------------------
+No problem found
+------------------------------ done in 0 seconds -------------------------------
+
+--------------------------- Check6: remove orphan l1 ---------------------------
+We remove only those not supposed to be orphan
+None found
+------------------------------ done in 0 seconds -------------------------------
+
+------------------------------ Check7: check cds -------------------------------
+No problem found
+------------------------------ done in 3 seconds -------------------------------
+
+----------------------------- Check8: check exons ------------------------------
+No exons created
+No exons locations modified
+No supernumerary exons removed
+No level2 locations modified
+------------------------------ done in 26 seconds ------------------------------
+
+------------------------------ Check9: check utrs ------------------------------
+No UTRs created
+No UTRs locations modified
+No supernumerary UTRs removed
+------------------------------ done in 14 seconds ------------------------------
+
+------------------------ Check10: all level2 locations -------------------------
+No problem found
+------------------------------ done in 21 seconds ------------------------------
+
+------------------------ Check11: all level1 locations -------------------------
+No problem found
+------------------------------ done in 1 seconds -------------------------------
+
+---------------------- Check12: remove identical isoforms ----------------------
+None found
+------------------------------ done in 4 seconds -------------------------------
+********************************************************************************
+*                                - End checks -                                *
+*                              done in 70 seconds                              *
+********************************************************************************
+
+=> OmniscientI total time: 389 seconds
+GFF3 file parsed
+Fasta file parsed
+usage: /lustre/home/ecp226/anaconda3/envs/agat/bin/agat_sp_filter_incomplete_gene_coding_models.pl --gff /lustre/home/ecp226/GuppyGenome2025/data/new/STAR_annot_v2.braker3.gff3 --fasta /lustre/home/ecp226/GuppyGenome2025/data/new/STAR.chromosomes.release.fasta --out /lustre/home/ecp226/GuppyGenome2025/output/new/STAR_annot_v2.braker3..incom.agat.out
+Results:
+We checked 70014 mRNAs.
+There are 0 mRNAs without start and stop codons.
+There are 48 mRNAs without stop codons.
+There are 67 mRNAs without start codons.
+Number of gene affected: 115
+Now printing complete models
+Now printing incomplete models
+Bye Bye.
